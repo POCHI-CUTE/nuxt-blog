@@ -21,14 +21,14 @@ export default {
   components: {
     blogArticle,
   },
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, $config }) {
     const data = await $axios.$get(
       // your-service-id部分は自分のサービスidに置き換えてください
       '/',
       {
         // your-api-key部分は自分のapi-keyに置き換えてください
         headers: {
-          'X-MICROCMS-API-KEY': process.env.API_SECRET_KEY,
+          'X-MICROCMS-API-KEY': $config.apiKey,
         },
       }
     )

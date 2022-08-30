@@ -1,5 +1,5 @@
 import axios from 'axios'
-const { API_KEY } = process.env.API_SECRET_KEY
+const { API_SECRET_KEY } = process.env
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -77,9 +77,9 @@ export default {
     },
   },
   privateRuntimeConfig: {
-    apiKey: API_KEY,
+    apiKey: API_SECRET_KEY,
   },
   publicRuntimeConfig: {
-    apiKey: process.env.NODE_ENV !== 'production' ? API_KEY : undefined,
+    apiKey: process.env.NODE_ENV !== 'production' ? API_SECRET_KEY : undefined,
   },
 }

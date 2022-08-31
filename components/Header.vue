@@ -2,7 +2,7 @@
 <template>
   <header class="justify-between bg-orange-300 flex">
     <h1 class="w-3/12 m-5">
-      <a href="/">ブログ </a>
+      <nuxt-link to="/">ブログ </nuxt-link>
     </h1>
     <div class="w-5/12 m-5">
       <ul class="flex justify-end">

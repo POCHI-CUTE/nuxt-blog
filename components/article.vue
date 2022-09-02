@@ -1,7 +1,6 @@
 <template>
   <div class="article">
     <h1 class="article__title">{{ content.title }}</h1>
-    <p class="article__body">{{ content.body }}</p>
   </div>
 </template>
 
@@ -26,6 +25,7 @@ export default {
   border-bottom: thick double #f1bc80;
 
   &__title {
+    color: black;
     display: -webkit-box;
     font-size: 30px;
   }

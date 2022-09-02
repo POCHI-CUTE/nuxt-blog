@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div>
-    <h1 class="font-bold blogbasecolor">ALL POST</h1>
+    <h1 class="blogbasecolor">ALL POST</h1>
 
     <ul>
       <li v-for="content in contents" :key="content.id">
@@ -50,5 +50,11 @@ $basecolor: #00a816;
 
 .blogbasecolor {
   @include basearrange();
+}
+</style>
+
+<style>
+body {
+  margin: 0;
 }
 </style>

@@ -1,11 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <header class="justify-between bg-orange-300 flex">
-    <h1 class="w-3/12 m-5">
-      <nuxt-link to="/">ブログ </nuxt-link>
-    </h1>
-    <div class="w-5/12 m-5">
-      <ul class="flex justify-end">
+  <header class="header">
+    <h2 class="title">
+      <nuxt-link class="home" to="/">ブログ </nuxt-link>
+    </h2>
+    <div class="end">
+      <ul>
         <li>
           <a href="https://github.com/POCHI-CUTE"
             ><img src="~/assets/image/GitHub-Mark-32px.png"
@@ -22,12 +22,28 @@ export default {
 }
 </script>
 
-<style>
-a[href='/'] {
+<style lang="scss" scoped>
+.header {
+  display: flex;
+  background-color: rgb(160, 146, 126);
+  margin: 0;
+  justify-content: space-between;
+}
+
+.home {
   color: white;
 }
 
-a[href='/']:hover {
+.home:hover {
   color: blue;
+}
+
+.title {
+  font-weight: 900;
+  margin-left: 5%;
+}
+
+.end {
+  margin-right: 5%;
 }
 </style>

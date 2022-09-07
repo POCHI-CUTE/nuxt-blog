@@ -60,14 +60,16 @@ export default {
   },
   generate: {
     async routes() {
+      const limit = 10
+      const range = (start, end) =>
+        [...Array(end - start + 1)].map((_, i) => start + i)
       const pages = await axios
-        .get('https://sh1vxj4xaz.microcms.io/api/v1/otblog?limit=100', {
+        .get('https://sh1vxj4xaz.microcms.io/api/v1/otblog?limit=0', {
           headers: { 'X-MICROCMS-API-KEY': process.env.API_SECRET_KEY },
         })
         .then((res) =>
-          res.data.contents.map((content) => ({
-            route: `/${content.id}`,
-            payload: content,
+          range(1, Math.ceil(res.data.totalCount / limit)).map((p) => ({
+            route: `/page/${p}`,
           }))
         )
       return pages
@@ -78,5 +80,14 @@ export default {
   },
   publicRuntimeConfig: {
     apiKey: process.env.NODE_ENV !== 'production' ? API_SECRET_KEY : undefined,
+  },
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'page',
+        path: '/page/:p',
+        component: resolve(__dirname, 'pages/index.vue'),
+      })
+    },
   },
 }

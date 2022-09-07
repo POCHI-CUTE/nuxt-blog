@@ -10,21 +10,26 @@
         </nuxt-link>
       </li>
     </ul>
+    <pagenation :pager="pager" :current="Number(page)" />
   </div>
 </template>
 
 <script>
 import blogArticle from '~/components/article.vue'
+import pagenation from '~/components/pagenation.vue'
 
 export default {
   name: 'TopPage',
   components: {
     blogArticle,
+    pagenation,
   },
-  async asyncData({ $axios, $config }) {
+  async asyncData({ $axios, $config, params }) {
+    const page = params.p || '1'
+    const limit = 10
     const data = await $axios.$get(
       // your-service-id部分は自分のサービスidに置き換えてください
-      '/',
+      `/?limit=${limit}&offset=${(page - 1) * limit}`,
       {
         // your-api-key部分は自分のapi-keyに置き換えてください
         headers: {
@@ -32,7 +37,11 @@ export default {
         },
       }
     )
-    return data
+    return {
+      ...data,
+      page,
+      pager: [...Array(Math.ceil(data.totalCount / limit)).keys()],
+    }
   },
 }
 </script>

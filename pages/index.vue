@@ -40,7 +40,9 @@ export default {
     return {
       ...data,
       page,
-      pager: [...Array(Math.ceil(data.totalCount / limit)).keys()],
+      pager: [
+        ...Array(Math.ceil(data.totalCount / limit)).keys(),
+      ],
     }
   },
 }

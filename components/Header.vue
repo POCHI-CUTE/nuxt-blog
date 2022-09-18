@@ -1,9 +1,13 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <header class="header">
-    <h2 class="title">
-      <nuxt-link class="home" to="/">ブログ </nuxt-link>
-    </h2>
+    <nuxt-link class="home" to="/"
+      ><img
+        src="~/assets/image/boss.png"
+        alt="icon"
+        class="icon"
+      />
+    </nuxt-link>
     <div class="end">
       <ul>
         <li>
@@ -32,18 +36,25 @@ export default {
 
 .home {
   color: white;
+  display: flex;
+  align-items: center;
+  margin-left: 2%;
 }
 
 .home:hover {
   color: blue;
 }
 
-.title {
-  font-weight: 900;
-  margin-left: 5%;
-}
-
 .end {
   margin-right: 5%;
+}
+
+.home > .icon {
+  width: 45px;
+  height: 45px;
+  &:hover {
+    width: 50px;
+    height: 50px;
+  }
 }
 </style>

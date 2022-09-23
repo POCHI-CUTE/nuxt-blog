@@ -13,11 +13,24 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1',
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: '',
+      },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -64,11 +77,20 @@ export default {
       const range = (start, end) =>
         [...Array(end - start + 1)].map((_, i) => start + i)
       const pages = await axios
-        .get('https://sh1vxj4xaz.microcms.io/api/v1/otblog?limit=0', {
-          headers: { 'X-MICROCMS-API-KEY': process.env.API_SECRET_KEY },
-        })
+        .get(
+          'https://sh1vxj4xaz.microcms.io/api/v1/otblog?limit=0',
+          {
+            headers: {
+              'X-MICROCMS-API-KEY':
+                process.env.API_SECRET_KEY,
+            },
+          }
+        )
         .then((res) =>
-          range(1, Math.ceil(res.data.totalCount / limit)).map((p) => ({
+          range(
+            1,
+            Math.ceil(res.data.totalCount / limit)
+          ).map((p) => ({
             route: `/page/${p}`,
           }))
         )
@@ -79,7 +101,10 @@ export default {
     apiKey: API_SECRET_KEY,
   },
   publicRuntimeConfig: {
-    apiKey: process.env.NODE_ENV !== 'production' ? API_SECRET_KEY : undefined,
+    apiKey:
+      process.env.NODE_ENV !== 'production'
+        ? API_SECRET_KEY
+        : undefined,
   },
   router: {
     extendRoutes(routes, resolve) {
@@ -90,4 +115,5 @@ export default {
       })
     },
   },
+  loading: '~/components/loading.vue',
 }

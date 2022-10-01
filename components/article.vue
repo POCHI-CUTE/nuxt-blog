@@ -19,12 +19,13 @@ export default {
 <style lang="scss" scoped>
 .article {
   height: 80px;
-  width: 30em;
+  width: 80%;
   text-align: start;
   margin: 0 auto;
-  border-bottom: thick double #f1bc80;
+  border-bottom: thick double #02798b;
 
   &__title {
+    height: 100%;
     color: black;
     display: -webkit-box;
     font-size: 30px;

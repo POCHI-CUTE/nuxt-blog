@@ -9,10 +9,12 @@
       />
     </nuxt-link>
     <div class="end">
-      <ul>
+      <ul class="icon">
         <li>
           <a href="https://github.com/POCHI-CUTE"
-            ><img src="~/assets/image/GitHub-Mark-32px.png"
+            ><img
+              class="img--github"
+              src="~/assets/image/GitHub-Mark-32px.png"
           /></a>
         </li>
       </ul>
@@ -29,7 +31,8 @@ export default {
 <style lang="scss" scoped>
 .header {
   display: flex;
-  background-color: rgb(160, 146, 126);
+  background-color: #02798b;
+  height: 100px;
   margin: 0;
   justify-content: space-between;
 }
@@ -46,15 +49,24 @@ export default {
 }
 
 .end {
+  display: flex;
+  align-items: center;
   margin-right: 5%;
 }
 
+.img {
+  &--github {
+    width: 3em;
+    height: 3em;
+  }
+}
+
 .home > .icon {
-  width: 45px;
-  height: 45px;
+  width: 4em;
+  height: 4em;
   &:hover {
-    width: 50px;
-    height: 50px;
+    width: 5em;
+    height: 5em;
   }
 }
 </style>

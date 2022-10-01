@@ -3,7 +3,7 @@
   <div>
     <h1 class="blogbasecolor">ALL POST</h1>
 
-    <ul>
+    <ul class="article--whole">
       <li v-for="content in contents" :key="content.id">
         <nuxt-link :to="`/${content.id}`">
           <blog-article :content="content"></blog-article>
@@ -61,6 +61,14 @@ $basecolor: #00a816;
 
 .blogbasecolor {
   @include basearrange();
+}
+
+.article {
+  &--whole {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90vw;
+  }
 }
 </style>
 

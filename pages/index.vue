@@ -3,19 +3,24 @@
   <div>
     <h1 class="blogbasecolor">ALL POST</h1>
 
-    <ul class="article--whole">
-      <li v-for="content in contents" :key="content.id">
-        <nuxt-link :to="`/${content.id}`">
-          <blog-article :content="content"></blog-article>
-        </nuxt-link>
-      </li>
-    </ul>
+    <div class="article--banner">
+      <ul class="article--whole">
+        <li v-for="content in contents" :key="content.id">
+          <nuxt-link :to="`/${content.id}`">
+            <blog-article :content="content"></blog-article>
+          </nuxt-link>
+        </li>
+      </ul>
+
+      <banner></banner>
+    </div>
     <pagenation :pager="pager" :current="Number(page)" />
   </div>
 </template>
 
 <script>
 import blogArticle from '~/components/article.vue'
+import Banner from '~/components/Banner.vue'
 import pagenation from '~/components/pagenation.vue'
 
 export default {
@@ -23,6 +28,7 @@ export default {
   components: {
     blogArticle,
     pagenation,
+    Banner,
   },
   async asyncData({ $axios, $config, params }) {
     const page = params.p || '1'
@@ -65,9 +71,13 @@ $basecolor: #00a816;
 
 .article {
   &--whole {
-    margin-left: auto;
-    margin-right: auto;
+    background-color: rgb(204, 247, 247);
+    margin-left: 5%;
+    margin-right: 5%;
     width: 90vw;
+  }
+  &--banner {
+    display: flex;
   }
 }
 </style>

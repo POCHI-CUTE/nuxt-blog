@@ -56,8 +56,8 @@ export default {
 
 .img {
   &--github {
-    width: 3em;
-    height: 3em;
+    width: 2em;
+    height: 2em;
   }
 }
 
